@@ -1,0 +1,27 @@
+{
+  "name": "file-manager",
+  "version": "0.0.1",
+  "description": "A file manager package for Node.js. This pkg allows you to perform crud operations. Creating file in your js and nodejs application is now easier than ever",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "file",
+    "manager",
+    "nodejs",
+    "read-file",
+    "create-file",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Raji DevMind",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "tsup": "^8.2.2",
+    "typescript": "^5.5.3"
+  }
+}
