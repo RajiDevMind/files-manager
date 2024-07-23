@@ -1,6 +1,8 @@
 # Follow this easy steps to use this package
 
+```
 npm install file-manager
+```
 
 # Then, in your application:
 
