@@ -26,24 +26,61 @@ module.exports = __toCommonJS(src_exports);
 
 // src/fileManager.ts
 var import_fs = require("fs");
+var NewFileName = (/* @__PURE__ */ new Date()).getMilliseconds();
+var fileName = NewFileName + "newFileName";
+console.log(fileName);
 var fileManager = {
-  createFile: async (filePath, content) => {
+  // createFile: async (filePath: string, content: string): Promise<string> => {
+  // fileManagerProps to avoid code conflict, if user want to use the name variable in their code
+  createFile: async ({
+    filePath,
+    content
+  }) => {
+    if (!filePath) {
+      filePath = fileName;
+    }
+    if (!content) {
+      return "Your can`t create an empty file!!!";
+    }
     try {
-      await import_fs.promises.writeFile(filePath, content);
+      await import_fs.promises.writeFile(filePath || fileName, content);
       return "File created successfully";
     } catch (error) {
       throw new Error(`Failed to create file: ${error.message}`);
     }
   },
-  readFile: async (filePath) => {
+  readFile: async ({ filePath }) => {
+    if (!filePath) {
+      filePath = fileName;
+    }
     try {
-      const data = await import_fs.promises.readFile(filePath, "utf8");
+      const data = await import_fs.promises.readFile(filePath || fileName, "utf8");
       return data;
     } catch (error) {
       throw new Error(`Failed to read file: ${error.message}`);
     }
   },
-  deleteFile: async (filePath) => {
+  updateFile: async ({
+    filePath,
+    content
+  }) => {
+    if (!filePath) {
+      filePath = fileName;
+    }
+    if (!content) {
+      return "Your can`t Update an empty file!!!";
+    }
+    try {
+      await import_fs.promises.writeFile(filePath || fileName, content);
+      return "File updated successfully";
+    } catch (error) {
+      throw new Error(`Failed to update file: ${error.message}`);
+    }
+  },
+  deleteFile: async ({ filePath }) => {
+    if (!filePath) {
+      return "Invalid file name. Try again!";
+    }
     try {
       await import_fs.promises.unlink(filePath);
       return "File deleted successfully";

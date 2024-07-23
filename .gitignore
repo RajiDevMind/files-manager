@@ -1,0 +1,5 @@
+/dist
+/node_modules
+
+// to publish your pkg to npm run
+npm publish

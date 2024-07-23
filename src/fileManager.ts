@@ -1,13 +1,19 @@
 // fileManager.ts
 import { promises as fs } from "fs";
 import * as path from "path";
+import { fileManagerProps } from "./types";
 
 const NewFileName = new Date().getMilliseconds();
 let fileName = NewFileName + "newFileName";
 console.log(fileName);
 
 const fileManager = {
-  createFile: async (filePath: string, content: string): Promise<string> => {
+  // createFile: async (filePath: string, content: string): Promise<string> => {
+  // fileManagerProps to avoid code conflict, if user want to use the name variable in their code
+  createFile: async ({
+    filePath,
+    content,
+  }: fileManagerProps): Promise<string> => {
     if (!filePath) {
       filePath = fileName;
     }
@@ -22,7 +28,7 @@ const fileManager = {
     }
   },
 
-  readFile: async (filePath: string): Promise<string> => {
+  readFile: async ({ filePath }: fileManagerProps): Promise<string> => {
     if (!filePath) {
       filePath = fileName;
     }
@@ -34,7 +40,10 @@ const fileManager = {
     }
   },
 
-  updateFile: async (filePath: string, content: string): Promise<string> => {
+  updateFile: async ({
+    filePath,
+    content,
+  }: fileManagerProps): Promise<string> => {
     if (!filePath) {
       filePath = fileName;
     }
@@ -49,7 +58,7 @@ const fileManager = {
     }
   },
 
-  deleteFile: async (filePath: string): Promise<string> => {
+  deleteFile: async ({ filePath }: fileManagerProps): Promise<string> => {
     if (!filePath) {
       return "Invalid file name. Try again!";
     }

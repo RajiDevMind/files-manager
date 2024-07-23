@@ -5,6 +5,10 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "homepage": "https://doc-link-here",
+  "repository": {
+    "url": "https://github.com/RajiDevMind/files-manager"
+  },
   "scripts": {
     "build": "tsup"
   },
