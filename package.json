@@ -10,7 +10,8 @@
     "url": "https://github.com/RajiDevMind/files-manager"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "test": "vitest"
   },
   "keywords": [
     "file",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@types/node": "^20.14.11",
     "tsup": "^8.2.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.4"
   }
 }

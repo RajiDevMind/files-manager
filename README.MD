@@ -8,10 +8,13 @@ npm install file-manager
 
 ```
 import fileManager from 'file-manager';
+import { resolve } from 'path'; //
+
 ```
 
 ```
-const filePath = './test.txt'; // NOTE: this filePath can be any file extension such as helloWorld.html or style.css
+// NOTE: this filePath can be any file extension such as helloWorld.html or style.css
+const filePath = resolve(__dirname, "test.txt");
 const content = '<h1>Hello, world!</h1> Your content goes here';
 ```
 
