@@ -1,66 +1,41 @@
 import { promises as fs } from "fs";
 import * as path from "path";
-import { fileManagerProps } from "./types";
-
-const NewFileName = new Date().getMilliseconds();
-let fileName = NewFileName + "newFileName";
-console.log(fileName);
 
 const fileManager = {
-  // createFile: async (filePath: string, content: string): Promise<string> => {
-  // fileManagerProps to avoid code conflict, if user want to use the name variable in their code
-  createFile: async ({
-    filePath,
-    content,
-  }: fileManagerProps): Promise<string> => {
-    if (!filePath) {
-      filePath = fileName;
-    }
+  createFile: async (filePath: string, content: string): Promise<string> => {
     if (!content) {
-      return "Your can`t create an empty file!!!";
+      throw new Error("You can't create an empty file!!!");
     }
     try {
-      await fs.writeFile(filePath || fileName, content);
+      await fs.writeFile(filePath, content);
       return "File created successfully";
     } catch (error: any) {
       throw new Error(`Failed to create file: ${error.message}`);
     }
   },
 
-  readFile: async ({ filePath }: fileManagerProps): Promise<string> => {
-    if (!filePath) {
-      filePath = fileName;
-    }
+  readFile: async (filePath: string): Promise<string> => {
     try {
-      const data = await fs.readFile(filePath || fileName, "utf8");
+      const data = await fs.readFile(filePath, "utf8");
       return data;
     } catch (error: any) {
       throw new Error(`Failed to read file: ${error.message}`);
     }
   },
 
-  updateFile: async ({
-    filePath,
-    content,
-  }: fileManagerProps): Promise<string> => {
-    if (!filePath) {
-      filePath = fileName;
-    }
+  updateFile: async (filePath: string, content: string): Promise<string> => {
     if (!content) {
-      return "Your can`t Update an empty file!!!";
+      throw new Error("You can't update a file with empty content!!!");
     }
     try {
-      await fs.writeFile(filePath || fileName, content);
+      await fs.writeFile(filePath, content);
       return "File updated successfully";
     } catch (error: any) {
       throw new Error(`Failed to update file: ${error.message}`);
     }
   },
 
-  deleteFile: async ({ filePath }: fileManagerProps): Promise<string> => {
-    if (!filePath) {
-      return "Invalid file name. Try again!";
-    }
+  deleteFile: async (filePath: string): Promise<string> => {
     try {
       await fs.unlink(filePath);
       return "File deleted successfully";

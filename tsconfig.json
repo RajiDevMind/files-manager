@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "strictNullChecks": true,
-    "target": "ES2022",
+    "target": "ES6",
     "moduleResolution": "Node10",
     "module": "CommonJS",
     "declaration": true,
@@ -12,6 +12,6 @@
     "noEmit": true,
     "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src", "tests/test.js"],
   "exclude": ["node_modules"]
 }

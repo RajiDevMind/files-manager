@@ -1,6 +1,5 @@
-// import fileManager from "./fileManager";
+import fileManager from "crud-file-manager";
 
-const fileManager = require("./fileManager");
 import { resolve } from "path";
 
 const filePath = resolve(__dirname, "test.txt");
