@@ -1,5 +1,5 @@
 {
-  "name": "file-manager",
+  "name": "crud-file-manager",
   "version": "0.0.1",
   "description": "A file manager package for Node.js. This pkg allows you to perform crud operations. Creating file in your js and nodejs application is now easier than ever",
   "main": "./dist/index.js",
