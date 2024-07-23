@@ -1,13 +1,13 @@
 # Follow this easy steps to use this package
 
 ```
-npm install file-manager
+npm install crud-file-manager
 ```
 
 # Then, in your application:
 
 ```
-import fileManager from 'file-manager';
+import fileManager from 'crud-file-manager';
 import { resolve } from 'path'; //
 
 ```
